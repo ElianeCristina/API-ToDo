@@ -1,13 +1,15 @@
 // fazer a importação do bd
+// const bd = require('../infra/bd');
+const Tarefa = require('../models/tarefa-model')
 
-const bd = require('../infra/bd');
-const usuario = require ('./models/tarefa-model')
+// req para requisição
+// res para dar resposta
 
-module.exports = (app) => {
-app.get ('/tarefa', (req, res) =>{ // get verbo para inserir
+module.exports = (app, bd) => {
+app.get ('/tarefa', (req, res) =>{ // get verbo para mostrar
     res.send('Dados de tarefa')
 })
-app.post ('/tarefa', (req, res) =>{
+app.post ('/tarefa', (req, res) =>{ //post verbo para inserir
     console.log(req.body)
     res.send("<h1>Tarefas</h1>")
 })
